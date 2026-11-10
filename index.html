@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Зеро Мастерская — сайты под ключ</title>
 <meta name="description" content="Сайты для малого бизнеса в Самаре: лендинги, многостраничные сайты и интернет-магазины под ключ. Дизайн, вёрстка, запуск.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Зеро Мастерская — сайты под ключ">
+<meta property="og:description" content="Сайты для малого бизнеса в Самаре: лендинги, многостраничные сайты и интернет-магазины.">
+<meta property="og:image" content="https://zeromasterskay.github.io/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
@@ -27,7 +33,7 @@ a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;padding-bottom:20px}
 .brand{font:600 15px/1.1 var(--head);text-decoration:none;display:flex;align-items:center;gap:10px}
-.brand svg{width:30px;height:34px}
+.brand img{height:40px;width:auto;border-radius:8px;display:block}
 nav{display:flex;gap:22px;font-weight:500;font-size:15px}
 nav a{text-decoration:none;color:var(--muted)}
 nav a:hover{color:var(--text)}
@@ -40,9 +46,9 @@ h1{font:600 clamp(27px,4.6vw,50px)/1.16 var(--head);margin:0 0 22px;letter-spaci
 .lead{font-size:19px;color:var(--muted);max-width:30em;margin:0 0 32px}
 .hero-cta{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .hero-cta span{color:var(--muted);font-size:15px}
-.stage{position:relative;width:100%;max-width:400px;justify-self:center}
+.stage{position:relative;width:100%;max-width:340px;justify-self:center}
 .stage::before{content:"";position:absolute;inset:-12%;background:radial-gradient(closest-side,rgba(126,196,240,.5),rgba(181,127,224,.28) 55%,transparent 78%);filter:blur(24px)}
-.cube{display:block;position:relative;width:100%;height:auto}
+.cube{display:block;position:relative;width:100%;height:auto;border-radius:28px}
 .cube .f{transform-box:fill-box}
 .chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:34px 0 0}
 .chips li{font-size:14px;font-weight:500;padding:8px 15px;border:1px solid var(--line);border-radius:99px;background:var(--bg)}
@@ -119,13 +125,37 @@ article.work:hover{transform:none;box-shadow:none}
 .contacts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .cta .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.75)}
 @media (max-width:520px){ol.steps{grid-template-columns:1fr}.price{white-space:normal}.btn{padding:15px 20px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cube,:root:not([data-theme="light"]) .brand img{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 24px 60px rgba(0,0,0,.45)}}
+@media (prefers-reduced-motion:no-preference){.cube{animation:in .9s cubic-bezier(.2,.7,.2,1) both}}
+footer{background:var(--alt);padding:56px 0 32px;border-top:1px solid var(--line)}
+footer .wrap{display:block}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:40px}
+.f-brand .brand{color:var(--text)}
+.f-brand p{margin:14px 0 0;max-width:24em}
+.f-col h3{margin:0 0 12px;font:600 14px/1.2 var(--head);color:var(--text)}
+.f-col a{display:block;padding:5px 0;text-decoration:none;overflow-wrap:anywhere}
+.f-col a:hover{color:var(--text)}
+.f-bottom{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)}
+.cta-points{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;padding:0;margin:28px 0 0;font-size:15px}
+.cta-points li::before{content:"✓ "}
+@media (max-width:820px){
+  .about{grid-template-columns:1fr;gap:28px}
+  .about p{max-width:none}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0 14px}
+  .facts li{padding:16px 0}
+  .facts b{font-size:17px}
+  .f-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .f-brand{grid-column:1/-1}
+  footer{padding:44px 0 28px}
+}
+@media (max-width:560px){.f-grid{grid-template-columns:1fr;gap:28px}.cta-points{flex-direction:column;align-items:center;gap:6px}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Зеро Мастерская">
-      <svg viewBox="0 0 300 340" aria-hidden="true"><polygon points="150,50 254,110 150,170 46,110" fill="#7ec4f0"/><polygon points="46,110 150,170 150,290 46,230" fill="#3f6fcb"/><polygon points="150,170 254,110 254,230 150,290" fill="#8d6fe0"/></svg>
+      <img src="logo.png" alt="" width="33" height="40">
       Зеро Мастерская
     </a>
     <nav>
@@ -135,7 +165,7 @@ article.work:hover{transform:none;box-shadow:none}
       <a href="#process">Этапы</a>
       <a href="#faq">Вопросы</a>
     </nav>
-    <a class="btn sm" href="https://t.me/zeromasterskay">Написать</a>
+    <a class="btn sm" href="https://t.me/zero_masterskay">Написать</a>
   </div>
 </header>
 
@@ -150,17 +180,7 @@ article.work:hover{transform:none;box-shadow:none}
       </div>
       <ul class="chips"><li>Адаптив под телефон</li><li>Быстрая загрузка</li><li>Правки после запуска</li></ul>
     </div>
-    <div class="stage"><svg class="cube" viewBox="0 0 300 340" role="img" aria-label="Объёмный куб в фирменных цветах"><filter id="bl"><feGaussianBlur stdDeviation="6"/></filter>
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9ad8f5"/><stop offset="1" stop-color="#5b8fe0"/></linearGradient>
-        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a82dc"/><stop offset="1" stop-color="#7a63d6"/></linearGradient>
-        <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f72e0"/><stop offset="1" stop-color="#c288e6"/></linearGradient>
-      </defs>
-      <ellipse cx="150" cy="318" rx="84" ry="10" fill="#7355cc" opacity=".3" filter="url(#bl)"/>
-      <g class="f f2"><polygon points="46,110 150,170 150,290 46,230" fill="url(#g2)"/><polygon points="66.8,146 129.2,182 129.2,254 66.8,218" fill="var(--bg)" opacity=".88"/></g>
-      <g class="f f3"><polygon points="150,170 254,110 254,230 150,290" fill="url(#g3)"/><polygon points="170.8,182 233.2,146 233.2,218 170.8,254" fill="var(--bg)" opacity=".88"/></g>
-      <g class="f f1"><polygon points="150,50 254,110 150,170 46,110" fill="url(#g1)"/><polygon points="150,74 212.4,110 150,146 87.6,110" fill="var(--bg)" opacity=".88"/></g>
-    </svg></div>
+    <div class="stage"><img class="cube" src="logo.png" alt="Логотип Зеро Мастерская: объёмный куб с буквами З и М" width="516" height="621"></div>
   </div>
 
   <section id="services" class="alt">
@@ -235,10 +255,11 @@ article.work:hover{transform:none;box-shadow:none}
         <h2>Расскажите о вашем проекте</h2>
         <p>Напишите пару строк о бизнесе и о том, какой сайт нужен. Отвечу и назову ориентировочную цену.</p>
         <div class="contacts">
-          <a class="btn" href="https://t.me/zeromasterskay">Написать в Telegram</a>
+          <a class="btn" href="https://t.me/zero_masterskay">Написать в Telegram</a>
           <a class="btn ghost" href="tel:+79170316869">Позвонить: 8 917 031-68-69</a>
         </div>
         <a class="alt-link" href="mailto:zeromasterskay@gmail.com">или на почту zeromasterskay@gmail.com</a>
+        <ul class="cta-points"><li>Отвечаю в течение дня</li><li>Цену называю до начала работы</li><li>Правки после запуска</li></ul>
       </div>
     </div>
   </section>
@@ -246,8 +267,31 @@ article.work:hover{transform:none;box-shadow:none}
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Зеро Мастерская (ранее Daniel Group)</span>
-    <span>Самозанятый. Чеки выдаю через «Мой налог»</span>
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="#top"><img src="logo.png" alt="" width="33" height="40">Зеро Мастерская</a>
+        <p>Сайты для малого бизнеса в Самаре: лендинги, многостраничные сайты и интернет-магазины под ключ.</p>
+      </div>
+      <div class="f-col">
+        <h3>Разделы</h3>
+        <a href="#services">Услуги</a>
+        <a href="#works">Работы</a>
+        <a href="#about">Обо мне</a>
+        <a href="#process">Этапы</a>
+        <a href="#faq">Вопросы</a>
+      </div>
+      <div class="f-col">
+        <h3>Контакты</h3>
+        <a href="https://t.me/zero_masterskay">Telegram: @zero_masterskay</a>
+        <a href="https://t.me/zeromasterskay">Канал: @zeromasterskay</a>
+        <a href="tel:+79170316869">8 917 031-68-69</a>
+        <a href="mailto:zeromasterskay@gmail.com">zeromasterskay@gmail.com</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Зеро Мастерская (ранее Daniel Group)</span>
+      <span>Самозанятый. Чеки выдаю через «Мой налог»</span>
+    </div>
   </div>
 </footer>
 </body>
