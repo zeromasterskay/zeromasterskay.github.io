@@ -33,7 +33,7 @@ a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;padding-bottom:20px}
 .brand{font:600 15px/1.1 var(--head);text-decoration:none;display:flex;align-items:center;gap:10px}
-.brand img{height:40px;width:auto;border-radius:8px;display:block}
+.brand img{height:40px;width:auto;display:block}
 nav{display:flex;gap:22px;font-weight:500;font-size:15px}
 nav a{text-decoration:none;color:var(--muted)}
 nav a:hover{color:var(--text)}
@@ -48,7 +48,7 @@ h1{font:600 clamp(27px,4.6vw,50px)/1.16 var(--head);margin:0 0 22px;letter-spaci
 .hero-cta span{color:var(--muted);font-size:15px}
 .stage{position:relative;width:100%;max-width:340px;justify-self:center}
 .stage::before{content:"";position:absolute;inset:-12%;background:radial-gradient(closest-side,rgba(126,196,240,.5),rgba(181,127,224,.28) 55%,transparent 78%);filter:blur(24px)}
-.cube{display:block;position:relative;width:100%;height:auto;border-radius:28px}
+.cube{display:block;position:relative;width:100%;height:auto;filter:drop-shadow(0 18px 28px rgba(80,70,170,.22))}
 .cube .f{transform-box:fill-box}
 .chips{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:34px 0 0}
 .chips li{font-size:14px;font-weight:500;padding:8px 15px;border:1px solid var(--line);border-radius:99px;background:var(--bg)}
@@ -125,7 +125,6 @@ article.work:hover{transform:none;box-shadow:none}
 .contacts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .cta .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.75)}
 @media (max-width:520px){ol.steps{grid-template-columns:1fr}.price{white-space:normal}.btn{padding:15px 20px}}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cube,:root:not([data-theme="light"]) .brand img{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 24px 60px rgba(0,0,0,.45)}}
 @media (prefers-reduced-motion:no-preference){.cube{animation:in .9s cubic-bezier(.2,.7,.2,1) both}}
 footer{background:var(--alt);padding:56px 0 32px;border-top:1px solid var(--line)}
 footer .wrap{display:block}
@@ -149,6 +148,32 @@ footer .wrap{display:block}
   footer{padding:44px 0 28px}
 }
 @media (max-width:560px){.f-grid{grid-template-columns:1fr;gap:28px}.cta-points{flex-direction:column;align-items:center;gap:6px}}
+
+:root{--grid:rgba(63,111,203,.13);--bp:#0e1538}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--grid:rgba(141,177,245,.15);--bp:#131d52}}
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0 -22px;z-index:-1;background:repeating-linear-gradient(30deg,transparent 0 33px,var(--grid) 33px 34px),repeating-linear-gradient(150deg,transparent 0 33px,var(--grid) 33px 34px);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 78% 50%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 78% 50%,#000 20%,transparent 75%)}
+h1{font-size:clamp(26px,4.4vw,46px)}
+.dim{position:relative;margin-top:22px;border-top:1px solid var(--acc);text-align:center;font-size:13px;font-weight:500;color:var(--acc)}
+.dim::before,.dim::after{content:"";position:absolute;top:-7px;width:1px;height:13px;background:var(--acc)}
+.dim::before{left:0}.dim::after{right:0}
+.dim span{position:relative;top:-.85em;padding:0 10px;background:var(--bg)}
+.band i{position:absolute;z-index:2;left:calc(9% + 12px);right:calc(9% + 12px);top:36px;height:22px;display:flex;align-items:center;padding:0 12px;font:500 12px/1 var(--body);font-style:normal;color:#5a5f73;background:#eef0f8;border-radius:99px}
+.band::after{top:68px}
+#process.bp{background-color:var(--bp);background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:32px 32px;color:#eef1ff}
+#process.bp h2{color:#fff}
+#process.bp ol.steps li{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.22)}
+#process.bp ol.steps h3{color:#fff}
+#process.bp ol.steps p{color:#b9c1e6}
+#process.bp ol.steps li::before{background:linear-gradient(120deg,var(--sky),var(--lilac));color:#0e1538}
+.price{background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(120deg,var(--sky),var(--lilac)) border-box;border:1.5px solid transparent}
+@media (max-width:820px){.hero::before{-webkit-mask-image:radial-gradient(ellipse 90% 45% at 50% 78%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 90% 45% at 50% 78%,#000 20%,transparent 75%)}}
+
+/* плавные переходы между блоками */
+section.alt{background:linear-gradient(var(--bg),var(--alt) 90px,var(--alt) calc(100% - 90px),var(--bg))}
+#process.bp{--f:150px;padding:calc(var(--f) - 40px) 0;background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(var(--bg),var(--bp) var(--f),var(--bp) calc(100% - var(--f)),var(--bg));background-size:32px 32px,32px 32px,100% 100%}
+@media (max-width:820px){section.alt{background:linear-gradient(var(--bg),var(--alt) 56px,var(--alt) calc(100% - 56px),var(--bg))}#process.bp{--f:110px;padding:calc(var(--f) - 24px) 0}}
+footer{background:linear-gradient(var(--bg),var(--alt) 60px)}
 </style>
 </head>
 <body>
@@ -172,15 +197,15 @@ footer .wrap{display:block}
 <main id="top">
   <div class="wrap hero">
     <div>
-      <h1>Сайты для малого бизнеса в Самаре</h1>
-      <p class="lead">Лендинги, многостраничные сайты и интернет-магазины для детских центров, студий, загородных баз и мастеров. Структура, дизайн, вёрстка и запуск. Сайт открывается на телефоне и приводит заявки.</p>
+      <h1>Проектирую сайты для малого бизнеса в Самаре</h1>
+      <p class="lead">Я студент-архитектор и делаю сайты по чертежу: сначала структура, потом дизайн, потом вёрстка. Для детских центров, студий, загородных баз и мастеров. Сайт открывается на телефоне и приводит заявки.</p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Обсудить сайт</a>
         <span>Отвечаю в Telegram в течение дня</span>
       </div>
       <ul class="chips"><li>Адаптив под телефон</li><li>Быстрая загрузка</li><li>Правки после запуска</li></ul>
     </div>
-    <div class="stage"><img class="cube" src="logo.png" alt="Логотип Зеро Мастерская: объёмный куб с буквами З и М" width="516" height="621"></div>
+    <div class="stage"><img class="cube" src="logo.png" alt="Логотип Зеро Мастерская: объёмный куб с буквами З и М" width="700" height="846"><div class="dim"><span>телефон, планшет, компьютер</span></div></div>
   </div>
 
   <section id="services" class="alt">
@@ -199,11 +224,11 @@ footer .wrap{display:block}
     <div class="wrap">
       <h2>Недавние работы</h2>
       <div class="works">
-        <article class="work"><div class="band"></div><div class="t"><b>АЮВИ (Auvikids)</b><span class="tag">Детский образовательный центр, Самара</span>
+        <article class="work"><div class="band"><i>auvikids.ru</i></div><div class="t"><b>АЮВИ (Auvikids)</b><span class="tag">Детский образовательный центр, Самара</span>
           <dl><dt>Задача</dt><dd>Рассказать о шести направлениях и команде центра, чтобы родитель мог записаться на пробное занятие.</dd>
           <dt>Что сделано</dt><dd>Главная с программами: у каждой своё окно с возрастом, ценой и формой заявки. Разделы «Команда», «Частые вопросы», статьи и страница лагеря. Сайт на Tilda.</dd></dl>
           <a class="open" href="https://auvikids.ru" target="_blank" rel="noopener">Открыть auvikids.ru</a></div></article>
-        <article class="work"><div class="band"></div><div class="t"><b>Домик у озера</b><span class="tag">Аренда барнхаусов, Царевщина</span>
+        <article class="work"><div class="band"><i>domikyozera63.ru</i></div><div class="t"><b>Домик у озера</b><span class="tag">Аренда барнхаусов, Царевщина</span>
           <dl><dt>Задача</dt><dd>Показать дома и дать гостям понятный способ связаться с владельцами.</dd>
           <dt>Что сделано</dt><dd>Сайт на Tilda с описанием домов, фотографиями и контактами. После запуска веду сайт и вношу правки.</dd></dl>
           <a class="open" href="https://domikyozera63.ru" target="_blank" rel="noopener">Открыть domikyozera63.ru</a></div></article>
@@ -227,7 +252,7 @@ footer .wrap{display:block}
     </div>
   </section>
 
-  <section id="process">
+  <section id="process" class="bp">
     <div class="wrap">
       <h2>Как проходит работа</h2>
       <ol class="steps">
